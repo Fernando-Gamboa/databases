@@ -25,11 +25,16 @@ db.connectAsync()
   // )
   .then(() =>
     db.queryAsync(
-      'CREATE TABLE IF NOT EXISTS messages (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, user VARCHAR(255) NOT NULL, text VARCHAR(255) NOT NULL, roomname VARCHAR(255) NOT NULL)'
+      'CREATE TABLE IF NOT EXISTS messages (messagesID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, users VARCHAR(255) NOT NULL, text VARCHAR(255) NOT NULL, roomname VARCHAR(255) NOT NULL)'
+    )
+  )
+  .then(() =>
+    db.queryAsync(
+      'CREATE TABLE IF NOT EXISTS users (userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, users VARCHAR(255) NOT NULL)'
     )
   )
   .catch((err) => {
     console.error(err);
   });
 
-module.exports.db = db;
+module.exports = db;

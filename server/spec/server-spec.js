@@ -22,6 +22,7 @@ describe('Persistent Node Chat Server', () => {
      * (or repeated runs of the tests)  will not fail when they should be passing
      * or vice versa */
     dbConnection.query(`truncate ${tablename}`, done);
+    dbConnection.query('truncate users', done);
   }, 6500);
 
   afterAll(() => {
@@ -65,11 +66,14 @@ describe('Persistent Node Chat Server', () => {
 
   it('Should output all messages from the DB', (done) => {
     // Let's insert a message into the db
-       const queryString = '';
+       const queryString = 'SELECT text FROM messages';
        const queryArgs = [];
-    /* TODO: The exact query string and query args to use here
+       const message = 'In mercy\'s name, three days is all I need.';
+       const roomname = 'Hello';
+
+       /* TODO: The exact query string and query args to use here
      * depend on the schema you design, so I'll leave them up to you. */
-    db.query(queryString, queryArgs, (err) => {
+    dbConnection.query(queryString, queryArgs, (err) => {
       if (err) {
         throw err;
       }
