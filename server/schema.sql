@@ -1,10 +1,10 @@
-CREATE DATABASE chat;
+-- CREATE DATABASE chat;
 
-USE chat;
+-- USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
-);
+-- CREATE TABLE messages (
+--   /* Describe your table here.*/
+-- );
 
 /* Create other tables and define schemas for them here! */
 
